@@ -28,7 +28,7 @@ jobs:
     steps:
 
     - name: Deploy to DigitalOcean Kubernetes
-      run: ls -la /home/runner/work/SettingX.Repositories.AzureTableStorage/
+      run: ls -la /home/runner/work/SettingX.Repositories.AzureTableStorage/SettingX.Repositories.AzureTableStorage/
       
     - name: Login to Docker Hub
       uses: docker/login-action@v1
