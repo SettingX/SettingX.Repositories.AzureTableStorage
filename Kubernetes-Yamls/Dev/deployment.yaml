@@ -29,7 +29,7 @@ spec:
       name: azure-table-storage
     spec:
       containers:
-      - name: api-gateway
+      - name: azure-table-storage
         image: settingx/azure_table_storage:latest
         imagePullPolicy: Always
         ports:
@@ -56,3 +56,14 @@ spec:
         env:
         - name: BuildNumber
           value: '0.2'
+        - name: SETTINGS_URL
+          value: '/mount/appsettings.json'
+        volumeMounts:
+        - mountPath: /mount/appsettings.json
+          name: azure-table-storage
+          readOnly: true
+          subPath: appsettings.json
+      volumes:
+        - name: azure-table-storage
+          configMap:
+            name: azure-table-storage
