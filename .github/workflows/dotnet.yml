@@ -54,5 +54,5 @@ jobs:
     - name: Deploy to DigitalOcean Kubernetes
       run: kubectl apply -f ./Kubernetes-Yamls/Dev/deployment.yaml
     - name: Verify deployment
-      run: kubectl rollout status deployment/azure-table-storage
+      run: kubectl rollout status deployment/azure-table-storage -n services
 
