@@ -18,12 +18,15 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build --no-restore --output ./build
     - name: Test
       run: dotnet test --no-build --verbosity normal
 
     - name: Deploy to DigitalOcean Kubernetes
-      run: ls -la /home/runner/work/SettingX.Repositories.AzureTableStorage/SettingX.Repositories.AzureTableStorage/
+      run: ls -la ./SettingX.Repositories.AzureTableStorage/SettingX.Repositories.AzureTableStorage/SettingX.Repositories.AzureTableStorage/bin/Debug/netcoreapp3.1/
+      
+    - name: Deploy to DigitalOcean Kubernetes
+      run: ls -la ./build
       
     - name: Login to Docker Hub
       uses: docker/login-action@v1
@@ -39,7 +42,7 @@ jobs:
       id: docker_build
       uses: docker/build-push-action@v2
       with:
-        context: ./SettingX.Repositories.AzureTableStorage/SettingX.Repositories.AzureTableStorage/SettingX.Repositories.AzureTableStorage/bin/Debug/netcoreapp3.1/
+        context: ./build
         file: ./SettingX.Repositories.AzureTableStorage/Dockerfile/Dockerfile
         push: true
         tags: settingx/azure_table_storage:latest
