@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    description: api-gateway
+  labels:
+    app: Azure-Table-Storage
+    tier: Service
+    version: '0.2'
+  name: azure-table-storage
+  namespace: services
+spec:
+  revisionHistoryLimit: 1
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  replicas: 1
+  selector:
+    matchLabels:
+      app: azure-table-storage
+  template:
+    metadata:
+      labels:
+        app: azure-table-storage
+        version: '0.2'
+      name: azure-table-storage
+    spec:
+      containers:
+      - name: api-gateway
+        image: settingx/azure_table_storage:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+#        readinessProbe:
+#          httpGet:
+#            path: /health/ready
+#            port: 5000
+#          initialDelaySeconds: 60
+#          periodSeconds: 10
+#        livenessProbe:
+#          httpGet:
+#            path: /health/live
+#            port: 5000
+#          initialDelaySeconds: 60
+#          periodSeconds: 20
+        resources:
+          requests:
+            memory: 128Mi
+            cpu: 40m
+          limits:
+            memory: 256Mi
+            cpu: 100m
+        env:
+        - name: BuildNumber
+          value: '0.2'
