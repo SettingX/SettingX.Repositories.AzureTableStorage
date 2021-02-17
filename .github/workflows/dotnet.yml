@@ -21,11 +21,6 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
-      
-  docker-build:
-    needs: [dotnet-build]
-    runs-on: ubuntu-latest
-    steps:
 
     - name: Deploy to DigitalOcean Kubernetes
       run: ls -la /home/runner/work/SettingX.Repositories.AzureTableStorage/SettingX.Repositories.AzureTableStorage/
@@ -51,6 +46,11 @@ jobs:
 
     - name: Image digest
       run: echo ${{ steps.docker_build.outputs.digest }}
+
+  kubernetes-deploy:
+    needs: [dotnet-build]
+    runs-on: ubuntu-latest
+    steps:
 
     - name: Install doctl
       uses: digitalocean/action-doctl@v2
