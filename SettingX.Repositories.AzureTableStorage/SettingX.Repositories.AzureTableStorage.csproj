@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
+        <PackageReference Include="Lykke.SettingsReader" Version="5.3.0" />
+        <PackageReference Include="SettingX.Core" Version="0.0.1-alpha.5" />
+        <PackageReference Include="SettingX.Repositories.Common.Client" Version="0.0.1-alpha.2" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.0.2" />
+        <PackageReference Include="Lykke.AzureStorage" Version="8.13.4" />
+    </ItemGroup>
+
+</Project>
