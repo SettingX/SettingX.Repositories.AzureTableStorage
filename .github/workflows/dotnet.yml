@@ -42,7 +42,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         context: ./
-        file: ./SettingX.Repositories.AzureTableStorage/Dockerfile
+        file: ./SettingX.Repositories.AzureTableStorage/Dockerfile/Dockerfile
         push: true
         tags: settingx/azure_table_storage:latest
 
