@@ -21,9 +21,6 @@ jobs:
       run: dotnet build --no-restore --output ./build
     - name: Test
       run: dotnet test --no-build --verbosity normal
-
-    - name: Deploy to DigitalOcean Kubernetes
-      run: ls -la ./SettingX.Repositories.AzureTableStorage/SettingX.Repositories.AzureTableStorage/SettingX.Repositories.AzureTableStorage/bin/Debug/netcoreapp3.1/
       
     - name: Deploy to DigitalOcean Kubernetes
       run: ls -la ./build
