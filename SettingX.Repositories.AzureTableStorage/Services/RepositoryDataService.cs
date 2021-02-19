@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Net.Http;
 using System.Threading.Tasks;
 using SettingX.Core.Repositories;
 using SettingX.Repositories.AzureTableStorage.Core.Services;
