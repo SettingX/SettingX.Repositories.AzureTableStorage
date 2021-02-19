@@ -19,13 +19,13 @@ namespace SettingX.Repositories.AzureTableStorage.Controllers
         }
 
         [HttpGet]
-        public async Task<HttpContent> GetDataAsync(string file = null)
+        public async Task<HttpContent> GetDataAsync([FromQuery] string file = null)
         {
             return new StringContent(await _repositoryDataService.GetDataAsync(file), Encoding.UTF8, "application/json");
         }
 
         [HttpPut]
-        public Task UpdateAsync(string json, string userName, string ipAddress, string file = null)
+        public Task UpdateAsync([FromQuery] string json, [FromQuery] string userName, [FromQuery] string ipAddress, [FromQuery] string file = null)
         {
             return _repositoryDataService.UpdateAsync(json, userName, ipAddress, file);
         }
@@ -37,13 +37,13 @@ namespace SettingX.Repositories.AzureTableStorage.Controllers
         }
 
         [HttpGet("exists")]
-        public Task<bool> ExistsAsync(string file = null)
+        public Task<bool> ExistsAsync([FromQuery] string file = null)
         {
             return _repositoryDataService.ExistsAsync(file);
         }
 
         [HttpDelete]
-        public Task DeleteAsync(string file)
+        public Task DeleteAsync([FromQuery] string file)
         {
             return _repositoryDataService.DeleteAsync(file);
         }
