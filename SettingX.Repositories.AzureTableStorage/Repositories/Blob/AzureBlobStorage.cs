@@ -128,7 +128,7 @@ namespace SettingX.Repositories.AzureTableStorage.Repositories.Blob
             return results;
         }
 
-        public async Task<IEnumerable<BlobResult>> GetBlobFilesDataAsync(string container)
+        public async Task<List<BlobResult>> GetBlobFilesDataAsync(string container)
         {
             var containerRef = _blobClient.GetContainerReference(container);
 

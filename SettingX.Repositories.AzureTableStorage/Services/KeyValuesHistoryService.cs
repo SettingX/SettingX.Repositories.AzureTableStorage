@@ -22,7 +22,7 @@ namespace SettingX.Repositories.AzureTableStorage.Services
                 userIpAddress);
         }
 
-        public Task SaveKeyValuesHistoryAsync(IEnumerable<KeyValue> keyValues, string userName, string userIpAddress)
+        public Task SaveKeyValuesHistoryAsync(List<KeyValue> keyValues, string userName, string userIpAddress)
         {
             return _keyValueHistoryRepository.SaveKeyValuesHistoryAsync(keyValues, userName, userIpAddress);
         }

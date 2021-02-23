@@ -9,7 +9,7 @@ using SettingX.Core.Repositories;
 
 namespace SettingX.Repositories.AzureTableStorage.Repositories.KeyValue
 {
-    public class KeyValuesRepository : IKeyValuesRepository
+    public class KeyValuesRepository : IKeyValuesRepository, ISecretKeyValuesRepository
     {
         private readonly INoSQLTableStorage<KeyValueEntity> _tableStorage;
         private readonly IKeyValueHistoryRepository _history;

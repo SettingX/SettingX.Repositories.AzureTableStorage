@@ -78,7 +78,7 @@ namespace SettingX.Repositories.AzureTableStorage.Repositories.Blob
             }
         }
 
-        public async Task<IEnumerable<BlobResult>> GetBlobFilesDataAsync()
+        public async Task<List<BlobResult>> GetBlobFilesDataAsync()
         {
             return await _blobStorage.GetBlobFilesDataAsync(_container);
         }

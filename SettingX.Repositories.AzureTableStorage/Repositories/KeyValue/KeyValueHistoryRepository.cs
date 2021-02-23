@@ -80,7 +80,7 @@ namespace SettingX.Repositories.AzureTableStorage.Repositories.KeyValue
         }
 
         public Task SaveKeyValuesHistoryAsync(
-            IEnumerable<SettingX.Core.Models.KeyValue> keyValues,
+            List<SettingX.Core.Models.KeyValue> keyValues,
             string userName,
             string userIpAddress)
         {

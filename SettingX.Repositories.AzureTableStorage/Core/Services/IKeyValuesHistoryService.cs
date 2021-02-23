@@ -14,7 +14,7 @@ namespace SettingX.Repositories.AzureTableStorage.Core.Services
             string userIpAddress);
 
         Task SaveKeyValuesHistoryAsync(
-            IEnumerable<KeyValue> keyValues,
+            List<KeyValue> keyValues,
             string userName,
             string userIpAddress);
 
